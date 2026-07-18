@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- 继承 Spring Boot 官方父工程，由它统一管理各种依赖的版本号 -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.4</version>
+        <relativePath/>
+    </parent>
+
+    <!-- 当前项目的基本信息 -->
+    <groupId>com.example</groupId>
+    <artifactId>redis-demo</artifactId>
+    <version>1.0.0</version>
+    <name>redis-demo</name>
+    <description>Spring Boot 3 + Redis 增删改查练习项目</description>
+
+    <properties>
+        <!-- 指定使用 JDK 17 编译 -->
+        <java.version>17</java.version>
+    </properties>
+
+    <dependencies>
+        <!-- Web 模块：让我们可以用 REST 接口来测试 Redis 操作 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!-- Redis 模块：Spring 操作 Redis 的核心依赖（默认底层客户端是 Lettuce） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
+        <!-- 测试模块：Spring Boot 自带的测试支持（可选） -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Spring Boot 打包插件：可以把项目打成可直接运行的 jar 包 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>

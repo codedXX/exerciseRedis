@@ -1,0 +1,20 @@
+# 服务端口
+server:
+  port: 8080
+
+spring:
+  # 注意：Spring Boot 3.x 的 Redis 配置前缀是 spring.data.redis
+  # （Spring Boot 2.x 是 spring.redis，写法不一样）
+  data:
+    redis:
+      host: localhost        # Redis 服务器地址
+      port: 6379             # Redis 端口（默认 6379）
+      database: 0            # 使用几号数据库（Redis 默认有 0~15 共 16 个库）
+      # password:            # 如果 Redis 设置了密码，取消注释并填写
+      timeout: 5000ms        # 连接超时时间
+
+# ========== 以下是本项目的自定义配置（不是 Spring Boot 官方属性）==========
+app:
+  redis:
+    key-prefix: "exerciseRedis:"   # key 统一前缀：所有 key 存进 Redis 前都会自动加上它
+                                   # 改成 "" 表示不加前缀
